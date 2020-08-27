@@ -237,7 +237,7 @@ class Car{
 	}
 }
 
-Car.nextVin =0 ;
+Car.nextVin = 0 ;
 const car1 = new Car("Tesla", "S");
 const car2 = new Car("Mazda", "3");
 const car3 = new Car("Mazda", "3");
@@ -256,7 +256,66 @@ Car.areSame(car2, car3); //true
 
 - 클래스의 인스턴스는 클래스의 기능을 모두 상속한다.
 - 객체의 프로토타입에서 메서드를 찾지 못하면 자바스크립트는 프로토타입의 프로토타입을 검색한다.
-- 
+
+```javascript
+class Vehicle{
+	constructor(){
+  	this.passengers = [];
+    console.log("Verhicle created");
+  }
+  addPassenger(p){
+    this.passsngers.push(p);
+  }
+}
+
+class Car extends Vehicle{
+  constructor(){
+  	super();
+  	console.log("Car created");
+  }
+  deployAirbags(){
+  	console.log("BWOOSH!");
+  }
+}
+
+
+const v = new Vehicle();
+v.addPassenger("Frank");
+v.addPassenger("Judy");
+v.passengers;
+
+const c = new Car();
+
+c.addPassenger("Alice");
+c.addPassenger("Cameron");
+c.passengers;
+
+v.deployAirbags(); //error
+c.deployAirbags();
+
+```
+
+- extends 키워드는 Car를 Vehicle의 서브클래스로 만든다.
+- Super()는 슈퍼클래스의 생성자를 호출하는 함수
+- 서브클래스에서는 반드시 super() 함수를 반드시 호출해야한다.
+
+
+
+##### 다형성(polymorphism)
+
+- 객체지향 언어에서 여러 슈퍼클래스의 멤버인 인스턴스를 가리키는 말
+- 자바스크립트의 객체는 모두 다형성을 갖고 있다고 할 수 있다. (자바스크립트는 느슨한 타입을 사용하고 어디서든 객체를 쓸 수 있음으로)
+- 객체가 클래스이 인스턴스인지 확인하는 instanceof 연산자가 있다.
+
+
+
+
+
+----
+
+다른 내용은 추후 복습 때 공부
+
+
 
 
 
