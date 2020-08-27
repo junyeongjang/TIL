@@ -1,2 +1,2 @@
-# TIL
-배운 것을 기록 
+# javascript-study
+자바스크립트 공부 
