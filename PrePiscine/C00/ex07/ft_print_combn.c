@@ -1,44 +1,35 @@
 #include <unistd.h>
 
-void	print(int n, int nums[])
+void 	print(int n, int *arr)
 {
-	char	c;
-	int		i;
+		int  i;
+		char c;
 
-	i = 0;
-	while (i < n)
-	{
-		c = nums[i] + 48;
-		write(1, &c, 1);
-		i++;
-	}
-	if (!(nums[0] == 10 - n && nums[n - 1] == 9))
-	{
-		c = ',';
-		write(1, &c, 1);
-		c = ' ';
-		write(1, &c, 1);
-	}
+		i = 0;
+		while (i < n)
+		{
+			c = arr[i++] + '0';
+			write(1, &c, 1);
+		}
+		write(1, &", ", 2);
 }
 
-void	comb(int n, int m, int picked[])
+void	dfs(int n, int depth, int *arr)
 {
-	int i;
+	int	i;
 
-	if (n == m)
-	{
-		print(n, picked);
-	}
+	if (n == depth)
+		print(n, arr);
 	else
 	{
-		if (m == 0)
-			i = 0;
-		else
-			i = picked[m - 1] + 1;
-		while (i <= 9)
-		{
-			picked[m] = i;
-			comb(n, m + 1, picked);
+		if (depth == 0) 
+			 i = 0;
+		else 
+			 i = arr[depth - i] + 1; 
+		while(i <= 9)
+		{	
+			arr[depth] = i;
+			dfs(n, depth+1, arr);
 			i++;
 		}
 	}
@@ -46,7 +37,7 @@ void	comb(int n, int m, int picked[])
 
 void	ft_print_combn(int n)
 {
-	int picked[10];
+	int arr[10];
 
-	comb(n, 0, picked);
+	dfs(n, 0, arr);
 }
