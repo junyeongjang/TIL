@@ -33,3 +33,27 @@
 3.  컴퓨터 하드웨어가 효율적으로 사용될 수 있는 것 (Use the computer hardware in an efficient manner)
 
 -   사용자의 편의성과 효율성의 조화를 이루기는 매우 힘듦
+
+### 캐싱의 정의
+
+-   저속의 저장장치에 저장되어있는 데이터에 대해 그 일부의 복사본을 그보다 빠른 저장장치에 보관에서 컴퓨터 동작의 성능을 향상하는 기법  
+    (copying information into faster storage system; main memory can be viewed as a cache for secondary storage)  
+    (메모리 계층간의 캐싱 가능)
+-   컴퓨터 시스템의 여러 부분에서 동작하는 성능 향상 기법
+-   주어진 하드웨어에서 최대한 빨리 데이터에 접근(캐싱의 목적)
+
+### 캐싱의 원리
+
+-   저속 저장장치에 담긴 원본 데이터를 고속 저장장치에 임시로 복사해놓는다.
+-   이렇게 되면 CPU는 같은 데이터를 고속 저장장치에서 데이터를 가져와서 성능을 향상 시킬 수 있다.
+-   단, 고속 저장장치는 저속 저장장치보다 메모리가 작기 때문에 모든 데이터를 보관할 수 없다. (일부만 캐싱할 수 있음)
+-   그렇다면 원본 데이터에서 어떤 데이터를 캐싱할까? -> 일반적으로 가장 최근에 사용한 데이터를 캐싱 (가장 최근에 사용된 데이터는 가까운 미래에 다시 사용될 확률이 높아서)
+
+### 캐싱 기법에서 데이터 접근
+
+-   캐싱 기법에서 데이터 접근은 캐시 역할을 하는 고속 저장장치부터 탐색한다.
+-   고속 장치에 원하는 데이터가 있을 경우에는 성능향상, 원하는 데이터가 없는 경우에는 원본이 있는 데이터에 접근하고 캐싱 (고속 저장장치에 저속 저장장치 원본 데이터를 복사하는 것을 (caching replacement)
+-   Faster storage (cache) checked first to determine if information is there
+    -   If it is, information used directly from the cache (fast)
+    -   If not, data copied to cache and used there
+-   모든 데이터를 캐시에 넣을 수 없다는게 중요함
