@@ -24,7 +24,7 @@ class Student{
 
 class StudentDB{
     Student[] students;
-    int idx;
+    int idx = 0;
     enum FindGPAParam {LOWER_THAN, HIGHER_THAN};
     StudentDB(){
       students = new Student[3];
@@ -65,7 +65,7 @@ class StudentDB{
         }
         else if(FindGPAParam.HIGHER_THAN == param) {
             for (int i = 0; i < 3; i++) {
-                if (students[i].gpa >= gpa)
+                if (students[i].gpa   >= gpa)
                     return students[i];
             }
         }
