@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="720fa86b-3880-42e3-9dde-f380afde57bd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../C/chapter01/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../C/chapter01/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OS/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../OS/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PrePiscine/C00/ex05/ft_print_comb2.c" beforeDir="false" afterPath="$PROJECT_DIR$/../PrePiscine/C00/ex05/ft_print_comb2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PrePiscine/C00/ex05/main" beforeDir="false" afterPath="$PROJECT_DIR$/../PrePiscine/C00/ex05/main" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PrePiscine/shell00/ex02/test0/test6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PrePiscine/shell00/ex02/test6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dataStructure/3.LIst(Array)/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dataStructure/3.LIst(Array)/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch01/chapter01.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch02/chapter02.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch03/3-2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch03/3-3-func.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch03/3-3-index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch03/3-3-var.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch03/3-4-console.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch03/3-4-filename.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch03/3-4-globalA.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch03/3-4-globalB.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch03/3-4-hash.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch03/3-4-nextTick.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch03/3-4-querystring.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch03/3-4-timer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch03/chapter03.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch04/4-1-createServer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch04/4-1-server1-0.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch04/about.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch04/chapter04.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch04/cluster.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch04/restFront.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch04/restFront.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch04/restFront.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch04/restServer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch04/server1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch04/server2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch04/server2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch04/server3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch04/server4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch04/server4.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/ch04/server5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/nodejs-book.md" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="720fa86b-3880-42e3-9dde-f380afde57bd" name="Default Changelist" comment="" />
+      <created>1614946867437</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1614946867437</updated>
+    </task>
+    <servers />
+  </component>
+</project>
