@@ -1,36 +1,37 @@
 
 #include <unistd.h>
 
-void	print(int num)
+void	print_number(int num)
 {
 	char n[2];
 
-	n[0] = num / 10 + 48;
-	n[1] = num % 10 + 48;
+	n[0] = num / 10 + '0';
+	n[1] = num % 10 + '0';
 	write(1, &n, 2);
 }
 
 void	ft_print_comb2(void)
 {
-	int		nums[2];
+	int		num[2];
 	char	chars[2];
 
-	nums[0] = 0;
+	num[0] = 0;
 	chars[0] = ',';
 	chars[1] = ' ';
-	while (nums[0] <= 98)
+	while (num[0] <= 98)
 	{
-		nums[1] = nums[0] + 1;
-		while (nums[1] <= 99)
+		num[1] = num[0] + 1;
+		while (num[1] <= 99)
 		{
-			print(nums[0]);
+			print_number(num[0]);
 			write(1, &chars[1], 1);
-			print(nums[1]);
-			if (!(nums[0] == 98 && nums[1] == 99))
+			print_number(num[1]);
+			if (!(nums[0] == 98 && num[1] == 99))
 			{
 				write(1, &chars, 2);
 			}
-			nums[1]++;
+			num[1]++;
 		}
-		nums[0]++;
+		num[0]++;
+	}
 }
