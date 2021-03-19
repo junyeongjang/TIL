@@ -113,7 +113,7 @@ arr.find((x,i) => i > 2 && Number.isInteger(Math.sqrt(x))); //4
 
 arr.some(x=> x%2===0); 
 arr.every(x=> x%2===0);
-``` 
+```
 
 - map과 filter
     1. map 
