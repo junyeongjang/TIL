@@ -1,34 +1,43 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
 
 public class Main {
-    private static int n,m;
-    private static boolean visit[];
-    private static int arr[];
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-        visit = new boolean[10];
-        arr = new int[10];
-        func(0);
-    }
-    private static void func(int depth){
-        if (depth == m){
-            for(int i=0;i<m;i++){
-                System.out.print(arr[i] + " ");
+    static int N, M;
+    static int arr[] = new int[10];
+    static boolean check[] = new boolean[10001];
+    static int num[];
+    static StringBuilder sb = new StringBuilder();
+    static void func(int depth, int idx){
+        if (depth == M){
+            for(int i=0;i<M;i++){
+                sb.append(arr[i] + " ");
             }
-            System.out.println();
+            sb.append("\n");
+            return;
         }
         else {
-            for (int i = 1; i <= n; i++) {
-                if (visit[i] == true) continue;
-                visit[i] = true;
-                arr[depth] = i;
-                func(depth + 1);
-                visit[i] = false;
+            for (int i = idx; i < N; i++) {
+                int temp = num[i];
+                arr[depth] = num[i];
+                func(depth + 1, i);
             }
         }
     }
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        N = Integer.parseInt(st.nextToken());
+        M = Integer.parseInt(st.nextToken());
+        st = new StringTokenizer(br.readLine());
 
+        num = new int[N];
+        for(int i=0;i<N;i++){
+            num[i] = Integer.parseInt(st.nextToken());
+        }
+        Arrays.sort(num);
+        func(0, 0);
+        System.out.print(sb);
+    }
 }
