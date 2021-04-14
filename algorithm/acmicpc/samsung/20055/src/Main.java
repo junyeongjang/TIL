@@ -8,7 +8,7 @@ public class Main {
     static int robot[];
     static int N, K;
     static int ans = 1;
-    static void rotate_check(){
+    static void rotate_check(){ //컨베이어 벨트 회전
         int temp = check[2*N];
         for(int i= 2*N; i > 1;i--){
             check[i] = check[i - 1];
@@ -19,7 +19,7 @@ public class Main {
         }
         robot[1] = 0;
     }
-    static void rotate_robot(){
+    static void rotate_robot(){ // 로봇 이동
         robot[N] = 0;
         for(int i = N; i > 1;i--){
             if(check[i] > 0 && robot[i - 1] == 1 && robot[i] == 0){
@@ -29,7 +29,7 @@ public class Main {
             }
          }
     }
-    static void create_robot(){
+    static void create_robot(){ // 로봇 올리
         if(check[1] > 0) {
             robot[1] = 1;
             check[1]--;
