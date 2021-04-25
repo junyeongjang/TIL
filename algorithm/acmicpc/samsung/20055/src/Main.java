@@ -48,20 +48,29 @@ public class Main {
         BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(rd.readLine());
         N = Integer.parseInt(st.nextToken());
-        K = Integer.parseInt(st.nextToken());
-        check = new int[2 * N + 1];
-        robot = new int[N + 1];
+//        K = Integer.parseInt(st.nextToken());
         st = new StringTokenizer(rd.readLine());
-        for(int i=1;i<=2*N;i++){
-            check[i] = Integer.parseInt(st.nextToken());
+        for(int i=0;i<N;i++){
+            st = new StringTokenizer(rd.readLine());
+            for(int j=0;j<N;j++) {
+                char temp = st.nextToken().charAt(0);
+                System.out.print(temp);
+            }
         }
-        while(true){
-            rotate_check();
-            rotate_robot();
-            create_robot();
-            if(check_break() == 1) break;
-            ans++;
-        }
+
+//        check = new int[2 * N + 1];
+//        robot = new int[N + 1];
+//        st = new StringTokenizer(rd.readLine());
+//        for(int i=1;i<=2*N;i++){
+//            check[i] = Integer.parseInt(st.nextToken());
+//        }
+//        while(true){
+//            rotate_check();
+//            rotate_robot();
+//            create_robot();
+//            if(check_break() == 1) break;
+//            ans++;
+//        }
         System.out.print(ans);
     }
 }
