@@ -107,7 +107,39 @@
 
 -   오늘날의 운영체제들은 위와 같은 구조를 명확하게 사용하지 않고, 성능, 보안, 편의성을 고려해서 여러 방식을 혼용해서 사용함
 
-### 프로세스
+## 멀티프로그래밍(Multiprogramming)
 
+### 개요
 
+-   프로세스(process)에 대해 공부하기 전에 먼저 멀티프로그래밍을 공부하는 것이 좋다.
+
+### Uni-Programming (단일 프로그래밍)
+
+-   멀티프로그래밍 이전에는 유니프로그래밍 방식으로 컴퓨터가 동작했다.
+-   [##_Image|kage@djRRpW/btq3Fm6lYNE/rZWGGOCz0ECSQOM1pKBR0K/img.png|alignCenter|width="100%" data-origin-width="786" data-origin-height="73" data-ke-mobilestyle="widthContent"|||_##]
+-   위의 사진을 보면 Program A가 실행될 때 RUN->Wait->Run->Wait 형태로 프로그램이 동작하기 된다.
+-   (이러한 RUN->Wait->Run->Wait 형태는 모든 프로그램에 공통되는 동작이다. CPU연산->입출력을 계속 반복하는 형태)
+-   이때 Wait는 CPU idle 상태라고 하는데, I/O(입출력) 상태 이거나 다른 동작을 하고 있기 때문에 CPU가 일을 하지 않고 있다.
+-   그 당시에는 CPU 연산과 같은 귀중한 자원이 idle 상태에 장기간 유지되는 것이 굉장한 낭비라고 생각되었기 때문에 Multi-programming이 등장하게 되었다.
+
+### Multi-programming (다중 프로그래밍)
+
+-   간단히 말해서 멀티프로그래밍은 CPU idle 상태 일 때 CPU 연산을 다른 프로그램에게 넘겨주는 것을 의미한다.
+-   [##_Image|kage@b6Gz56/btq3yKBn9qa/hcb50gIKZlgGkO2rnIe2gk/img.png|alignCenter|width="100%" data-origin-width="431" data-origin-height="230" data-ke-mobilestyle="widthContent"|||_##]
+-   위의 사진을 보면 A의 CPU 연산이 끝나고 I/O 연산이 진행되려고 할 때 CPU가 쓰이지 않기 때문에 프로그램 B에게 CPU 연산을 넘겨준다.
+-   이런 식으로 한 개의 프로그래밍만 실행하지 않고 CPU는 여러 프로그래밍을 실행하게 된다. (최근 모든 운영체제는 멀티프로그래밍 방식을 사용함)
+
+### Uni-Programming vs Multi-programming
+
+-   그림을 통해서 Multi-programming과 uni-programming을 비교해보자.
+-    [##_Image|kage@cExRO7/btq3y6YwUMn/qhmTVj2oU6Sn7wnYbkkL2k/img.png|alignCenter|width="100%" data-origin-width="603" data-origin-height="206" data-filename="blob" data-ke-mobilestyle="widthContent"|유니프로그래밍||_##]
+-   [##_Image|kage@bp47TT/btq3CzlkoHn/4WE5J0yvyuCR1zdlRbVWC1/img.png|alignCenter|width="100%" data-origin-width="431" data-origin-height="230" data-ke-mobilestyle="widthContent"|멀티프로그래밍||_##]
+-   먼저 그림의 가장 하단에 보이는 화살표는 CPU 연산 시간이다.
+-   멀티프로그래밍의 CPU 연산 시간이 압도적으로 짧은 것을 볼 수 있다. 이를 통해 멀티 프로그래밍의 장점을 정리할 수 있다.
+-   장점
+    1.  Trought(처리량)이 높다.
+    2.  Utillization(활용도)가 높다.
+    3.  처리량과 활용도는 Degree of multiprogramming가 높을수록 높다. 즉 최대한 많은 프로그램을 동시에 실행시키는 것이 좋다.
+
+출처 - 공룡 책 (Operating System Concepts)
 
