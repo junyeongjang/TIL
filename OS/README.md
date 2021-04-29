@@ -143,3 +143,75 @@
 
 출처 - 공룡 책 (Operating System Concepts)
 
+
+
+
+
+## 프로세스 (Process)
+
+-   **프로세스**란 실행 중인 프로그램을 의미한다. (프로그램 그 자체는 프로세스가 아님)
+-   아래 사진은 프로세스가 메모리에 로드되어 있는 모습이다.
+-   ![](https://blog.kakaocdn.net/dn/omGN1/btq3JeoIUrB/w1fpkX63rEl9DjPGbA6ZQk/img.png)
+-   0 주소는 프로세스의 시작 위치 주소이고, max 표시는 프로세스의 마지막 주소를 의미한다.
+-   Text section : 프로그램의 명령들, 즉 코드들을 의미한다 + 코드가 실행 중이기 때문에 PC와 같은 프로세서 레지스터를 포함
+-   Stack : 함수의 동작과 관련된 내용들이 저장되어 있음 ex) 함수의 복귀주소, 로컬 변수, 함수의 매개변수와 같이 임시적인 자료를 가지는 것들
+-   Data : 전역 변수가 포함되어 있음
+-   Heap : 동적으로 메모리가 할당 되었을 경우 사용됨 ex) C언어의 malloc
+-   화살표 부분 : 프로세스의 영역이긴 하지만, 아직 사용되고 있지 않은 빈 공간. 힙과 스택의 메모리 사용 여부에 따라 공간이 달라짐
+
+## 프로세스 상태 (Process State)
+
+[##_Image|kage@bg0VUT/btq3Ob48nf7/XMQTj6VkfaKT80VM13uCg0/img.png|alignCenter|data-origin-width="951" data-origin-height="419" width="642" height="NaN" data-ke-mobilestyle="widthContent"|||_##]
+
+-   new : 프로세스가 생성 중
+-   ready : 프로세스가 처리기에 할당되기를 기다림
+-   running : 명령어들이 실행되고 있다.
+-   waiting : 프로세스가 어떤 사건이 일어나기를 기다린다.
+-   terminated : 프로세스의 실행이 종료되었다.
+
+## 프로세스 제어 블록
+
+[##_Image|kage@dPd9th/btq3NFFohIT/yInAzwoh5GknOAykonB2q0/img.png|alignCenter|data-origin-width="258" data-origin-height="404" width="212" height="NaN" data-ke-mobilestyle="widthContent"|||_##]
+
+-   커널이 개별 프로세스를 관리하기 위해서 유지하는 자료구조 (커널은 프로세스들의 PCB를 모아서 링크드리스트로 관리한다)
+-   한 프로세스에 해당하는 모든 정보들이 담겨 있다.(프로세스마다 PCB가 존재한다)
+-   프로세스가 생성되면 PCB도 생성되고, 프로세스가 삭제되면 PCB가 삭제됨
+-   Process state: 프로세스의 상태 정보를 담겨있다(프로세스의 상태가 바뀔 떄 이곳의 정보가 바뀜)
+-   Process ID : PID 즉, 프로세스 아이디(정수로 표현됨)
+-   Program Counter : 현재 실행중인 명령의 위치를 담고 있는 레지스터(CPU의 PC값의 복사본을 저장해놓음) => 상태가 running 아닐 때만 의미 있음
+-   CPU registers : PC 레지스터를 제외한 CPU 레지스터 값들의 복사본들이 저장되어 있음, 프로세스의 실행이 멈췄다가 다시 실행할 때 아주 중요한 정보이다.
+-   CPU scheduling information : 우선순위, 스케쥴링 포인터 값이 저장되어 있음
+-   Memory-management information: 할당 받아 사용되고 있는 메인 메모리 위치
+-   Accounting information : 자원 사용 기록이 저장되어 있음
+-   I/O status information : 프로세스의 입출력 관련 정보가 들어있음
+
+## 프로세스 스케쥴링(Process Scheduling)
+
+멀티 프로그래밍의 목적은 CPU 목적을 극대화하기 위해서, 항상 어떤 프로세스가 실행되도록 하는 데 있다.  
+시분할(time sharing)의 목적은 각 프로그램이 실행되는 동안 사용자가 상호 작용할 수 있도록 프로세스들 사이에서 CPU를 빈번하게 교체하는 것이다.  
+이 목적을 달성하기 위해 프로세스 스케쥴러는 CPU에서 실행 가능한 여러 프로세스들 중에서 하나의 프로세스를 선택한다.
+
+-   스케줄링 큐 (Scheduling Queues)
+    -   스케줄링 큐마다 해당 큐에 대해서 동작하는 스케쥴러가 있다고 보면 됨  
+        [##_Image|kage@H4xqB/btq3ITykk2Z/wVG28AQxLL0lBVzOBxjxS0/img.png|alignCenter|width="100%" data-origin-width="470" data-origin-height="402" data-ke-mobilestyle="widthContent"|||_##]
+    -   ready queue : 메인 메모리에 있으면서 즉시 실행 가능한 프로세스들의 큐 (프로세스 상태가 ready인 상태)
+    -   device queue: 장치마다 한 개씩 존재, 해당 디바이스에 대해 입출력을 개시하고 완료를 기다리는 큐(device queue에 속한 프로세스의 상태는 wating)
+    -   Job queue: 시스템에 있는 모든 프로세스들이 포함되어 있는 큐
+
+## 스케쥴러(Schedulers)
+
+-   단기 스케쥴러 (short-term scheduler / cpu scheduler) : 다음번에 사용할 프로세스를 선택해서, 해당 프로세스에게 CPU를 할당하는 스케쥴러 (ready queue에 대해 동작)
+    -   매우 빈번하게 실행 됨
+-   장기 스케쥴러 (long-term schelduler /job scheduler) : 어느 프로세스를 ready queue로 가져올지 결정하는 스케쥴러 (프로세스 상태를 new->ready 상태로 바꿀지 결정함)
+    -   단기 스케쥴러만큼 빈번하게 동작하지 않음
+-   중기 스케쥴러 (medium-term scheduler) : 메인 메모리에서 동작하는 프로세스를 swap disk라는 곳으로 잠깐 swapping 시켜서 메인 메모리 공간을 확보
+
+## 문맥 교환 (Context Switch)
+
+[##_Image|kage@bJDnDc/btq3JSTjpKg/j3XV9YmMcoea9lH9lF9Rx1/img.png|alignCenter|width="100%" data-origin-width="474" data-origin-height="394" data-ke-mobilestyle="widthContent"|||_##]
+
+-   프로세스 사용이 전환될 때(p0->p1) P0가 사용되던 레지스터 값들을 p0의 PCB에 저장해야 한다. p1은 자신의 PCB에서 레지스터 값들을 불러온다.
+-   즉, CPU가 이전의 프로세스 상태를 PCB에 보관하고, 또 다른 프로세스의 정보를 PCB에 읽어 레지스터에 적재하는 과정
+-   PCB에 context가 저장되어 있다.
+-   Context Switch 시간 자체는 시스템의 Overhead라고 할 수 있다. 이유는 시스템은 무조건 Context Switching을 해야 하나 그 행위 자체가 OVerhead라는 것이다. 가급적 Context Switch는 가능한 자주 하지 않고 짧게 하는 것이 좋다.
+
