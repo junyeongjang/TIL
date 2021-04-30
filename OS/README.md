@@ -161,7 +161,7 @@
 
 ## 프로세스 상태 (Process State)
 
-[##_Image|kage@bg0VUT/btq3Ob48nf7/XMQTj6VkfaKT80VM13uCg0/img.png|alignCenter|data-origin-width="951" data-origin-height="419" width="642" height="NaN" data-ke-mobilestyle="widthContent"|||_##]
+
 
 -   new : 프로세스가 생성 중
 -   ready : 프로세스가 처리기에 할당되기를 기다림
@@ -171,7 +171,7 @@
 
 ## 프로세스 제어 블록
 
-[##_Image|kage@dPd9th/btq3NFFohIT/yInAzwoh5GknOAykonB2q0/img.png|alignCenter|data-origin-width="258" data-origin-height="404" width="212" height="NaN" data-ke-mobilestyle="widthContent"|||_##]
+
 
 -   커널이 개별 프로세스를 관리하기 위해서 유지하는 자료구조 (커널은 프로세스들의 PCB를 모아서 링크드리스트로 관리한다)
 -   한 프로세스에 해당하는 모든 정보들이 담겨 있다.(프로세스마다 PCB가 존재한다)
