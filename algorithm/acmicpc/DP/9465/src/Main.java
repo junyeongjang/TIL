@@ -5,24 +5,26 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int T = Integer.parseInt(st.nextToken());
-        for(int i=0;i<T;i++){
-            st = new StringTokenizer(br.readLine());
-            int N = Integer.parseInt(st.nextToken());
-            int board[][] = new int[2][N+1];
-            int dp[][] = new int[N+1][3];
-            for(int j=0;j<2;j++){
-                st = new StringTokenizer(br.readLine());
-                for(int k=0;k<N;k++){
-                    board[j][k] = Integer.parseInt(st.nextToken());
+        int N = Integer.parseInt(st.nextToken());
+        int arr[] = new int[N+1];
+        int dp[] = new int[N+1];
+        int check[] = new int[1001];
+        st = new StringTokenizer(br.readLine());
+        for(int i=0;i<N;i++){
+            arr[i] = Integer.parseInt(st.nextToken());
+        }
+        for(int i=N-1;i>=0;i--){
+            dp[i] = 1;
+            for (int j=N-1; j>i; j--){
+                if(arr[j] < arr[i] && dp[i] < dp[j] + 1){
+                    dp[i] = dp[j] + 1;
                 }
             }
-            for (int j=1; j<=N; j++) {
-                dp[j][0] = Math.max(dp[j-1][0],Math.max(dp[j-1][1],dp[j-1][2]));
-                dp[j][1] = Math.max(dp[j-1][0],dp[j-1][2])+board[0][j-1];
-                dp[j][2] = Math.max(dp[j-1][0],dp[j-1][1])+board[1][j-1];
-            }
-            System.out.println(Math.max(dp[N][0], Math.max(dp[N][1], dp[N][2])));
         }
+        int ans = 0;
+        for(int i=0;i<N;i++){
+            ans = Math.max(dp[i], ans);
+        }
+        System.out.println(ans);
     }
 }
