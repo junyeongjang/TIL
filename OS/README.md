@@ -215,3 +215,35 @@
 -   PCB에 context가 저장되어 있다.
 -   Context Switch 시간 자체는 시스템의 Overhead라고 할 수 있다. 이유는 시스템은 무조건 Context Switching을 해야 하나 그 행위 자체가 OVerhead라는 것이다. 가급적 Context Switch는 가능한 자주 하지 않고 짧게 하는 것이 좋다.
 
+
+
+## 스레드란
+
+-   프로세스의 실행 단위라고 할 수 있으며, 한 프로세스 내에서 동작되는 여러 실행 흐름으로 프로세스 내의 주소 공간이나 자원을 공유할 수 있다.
+-   [##_Image|kage@Xfmfi/btq4JwOxi4i/KjwwUIetRf3s8nYmT8rUpK/img.png|alignCenter|width="100%" data-origin-width="244" data-origin-height="300" data-ke-mobilestyle="widthContent"|||_##]
+-   위의 그림과 같이 Code, data, files, registers, stack을 담고 있는 프로세스가 있다고 가정하자.
+-   만약 사용자가 똑같은 프로그램 3개를 실행한다면, 아래의 그림과 같이 3개의 프로세스가 실행될 것이다.
+-   [##_Image|kage@LVtMG/btq4MfyH50y/WSFJTCZ1DUXceEGj9w2kY1/img.png|alignCenter|width="100%" data-origin-width="0" data-origin-height="0" data-ke-mobilestyle="widthContent"|||_##]
+-   그림을 보면 똑같은 프로그램을 바탕으로 실행한 프로세스임에도 불구하고, code, data, files 부분을 각각 갖고 있다. 이때 자원 낭비를 줄이고자 등장한 개념이 Threads(스레드)이다.
+-   code : 실행 중에 바뀌지 않기 때문에 1개만 존재하면 된다.
+-   data, files: 프로세스마다 다르기 하지만 자원 공유가 가능하기 때문에 1개만 존재하면 된다.
+-   registers, stack: 실행시마다 달라지며, 공유 불가능하기 때문에 각각 존재해야 한다.
+-   이러한 점을 고려하면 아래와 그림과 같이 하나의 프로레스로 표현 가능하다. 이때 registers와 stack 부분을 합쳐서 Threads라고 한다.
+-   [##_Image|kage@cp7Dwx/btq4HrgAWet/k2uTrXkHoKkKubJlJyvOQ1/img.png|alignCenter|width="100%" data-origin-width="0" data-origin-height="0" data-ke-mobilestyle="widthContent"|||_##]
+-   스레드는 한 번의 실행을 나타내는 registers와 stack을 포함하는 개념이고, 그림에서 곡선 모양이 Threads를 의미한다.
+-   이러한 그림을 Multithreaded process라고 한다.
+-   커널은 일반적으로 멀티 스레드로 구분됨
+
+## 멀티스레드의 장점
+
+1.  Responsiveness(응답성 증가) : (기다리지 않고 다른 동작이 별로도 동작을 하기 때문에)
+2.  Resource Sharing (자원 공유) : 프로세스와 달리 요청 없이 자연스럽게 자원을 공유할 수 있다.
+3.  Economy (경제성) : 프로세스를 생성하기 위해서는 많은 비용이 들지만, 스레드들은 자원을 공유하기 때문에 경제적이다.
+
+## 멀티스레드의 대표적인 사용 사례 (web server)
+
+-   [##_Image|kage@n6wRg/btq4F2VsSil/RqVPfmXTDKGBJ55OMkWrP0/img.png|alignCenter|width="100%" data-origin-width="1452" data-origin-height="686" data-ke-mobilestyle="widthContent"|||_##]
+-   새로운 요청이 올 때 멀티스레드를 사용하여 클라이언트와 통신을 함
+
+출처 - 공룡 책 (Operating System Concepts)
+
