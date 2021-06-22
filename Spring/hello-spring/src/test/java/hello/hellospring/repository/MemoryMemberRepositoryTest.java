@@ -22,8 +22,8 @@ public class MemoryMemberRepositoryTest {
         member.setName("Spring");
 
         repository.save(member);
-        Member result = repository.findById(member.getId()).get();
-        assertThat(result).isEqualTo(member);
+        Member result = repository.findById(member.getId()).get(); // 반환값이 Optional 이기 떄문에 바로 꺼
+        assertThat(member).isEqualTo(result); // 직접 결과를 print로 찍어 볼 수 없으니, assert를 사용함
     }
     @Test
     public void findByName(){
